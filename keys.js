@@ -1,5 +1,10 @@
 module.exports = {
 
+    // CONEXION A DATABASE
+    //ACTUZALIZA
+    //ANTES ERA EN OTRO HOST DE MYSQL
+    //AHORA ES EN MYFREESQL
+    
     database: {
         connectionLimit: 10,
         host: 'sql3.freemysqlhosting.net',
