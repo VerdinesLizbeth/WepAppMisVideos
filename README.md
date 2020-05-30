@@ -32,8 +32,10 @@ Link del deploy: "https://wepappmis.now.sh"
 Usamos el editor de código de Visual Studio Code.
 
 # BASE DE DATOS
-Remote MYSQL
-http://mysqlremote.com/
+Free MYSQL
+https://www.freemysqlhosting.net/
+
+Usuarios y contraseñas protegidos. Preguntar a colaboradores.
 
 # PLATAFORMA 
 Zeit.co y Github
