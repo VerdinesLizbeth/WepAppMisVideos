@@ -1,0 +1,97 @@
+<section class="page-section bg-dark">
+    <div class="container">
+        <div class="text-center">
+            <br>
+           <font face="Comic Sans MS,arial,verdana" color="yellow" ><h1>Edit Video?!?</h1></font>
+             <iframe id="video_add" width="347" height="310" src="{{data.url}}" frameborder="10"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-sm-4 offset-md-4">
+                    <div class="card animated flipInY">
+                        <div class="card-body">
+                           <form action="/videos/update/{{data.id}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Name" class="form-control" value="{{data.name}}"
+                        autofocus required>
+                </div>
+                <div class="form-group">
+                    <input id="red" value="{{data.id_red}}" style="display: none;">
+                    <select id="id_red" class="form-control" name="id_red" onChange="validation()">
+                        {{#each  red }}
+                        <option  value="{{id_Pla}}"> {{ name_Pla }}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input id="link" type="url" 
+                        title="The URL must be https://www.{red social}.com/embed/... or https://player.vimeo.com/video/..."
+                        name="url" placeholder="Link ej. https://www.youtube.com/embed/djV11Xbc914" class="form-control"
+                        value="{{data.url}}" onchange="videoAdd()" required>
+                </div>
+                <div class="form-group">
+                    <input id="category" type="text" name="category" placeholder="Category" class="form-control"
+                        value="{{data.category}}" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" rows="2" class="form-control"
+                        placeholder="Description"> {{data.description}}</textarea>
+                </div>
+                <button class="btn btn-success btn-block" onclick="validation()">
+                    Save change
+                </button>
+            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+         {{>footer}} 
+    <script type="text/javascript">
+        var select = document.getElementById("id_Pla");
+        function validation() {
+            var inputUrl = document.getElementById("link");
+            var link;
+            var titulo;
+            console.log(select.value);
+         switch (select.value) {
+                case '1':
+                    link = "https://www.youtube.com/embed/.*";
+                    titulo = "The URL must be https://www.youtube.com/embed/...";
+                    break;
+                     case '2':
+                    link = "https://player.vimeo.com/video/.*";
+                    titulo = "The URL must be https://player.vimeo.com/video/...";
+                    break;
+                case '3':
+                    link = "https://www.metacafe.com/embed/.*";
+                    titulo = "The URL must be https://www.metacafe.com/embed/...";
+                  break;
+                default:
+                    link = "no funciona";
+
+            }
+            inputUrl.pattern = link;
+            console.log(inputUrl.pattern);
+            inputUrl.title = titulo;
+            console.log(link);
+
+        };
+        function videoAdd() {
+            var mod = document.getElementById("modificacion");
+            var video = document.getElementById("video_add");
+            var links = document.getElementById("link");
+            alert("You have modified the video URL")
+            mod.style = "visibility: visible";
+            video.src = links.value;
+        };
+        function seleccionar() {
+            var valor = document.getElementById("red");
+            var redes = document.getElementById("id_Pla");
+           val=valor.value;
+             document.ready = redes.value= val;
+        };
+        window.onload = seleccionar;
+    </script>

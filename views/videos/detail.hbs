@@ -1,0 +1,97 @@
+<section class="page-section bg-dark">
+ <div class="container">
+  <div class="text-center">
+    <br>
+            <font face="Comic Sans MS,arial,verdana" color="white" ><h1>Video Data...</h1></font>
+     <font face="Comic Sans MS,arial,verdana" color="white" > <a><h1> Title: {{data.name}}</h1></a></font>
+      {{#if user}}
+      <form action="/detail/{{data.video_id}}" method="POST">
+        <h1 class="clasificacion">
+          <input id="radio1" type="radio" name="votos" value="5">
+          <!--
+    --><label for="radio1">★</label>
+          <!--
+    --><input id="radio2" type="radio" name="votos" value="4">
+          <!--
+    --><label for="radio2">★</label>
+          <!--
+    --><input id="radio3" type="radio" name="votos" value="3">
+          <!--
+    --><label for="radio3">★</label>
+          <!--
+    --><input id="radio4" type="radio" name="votos" value="2">
+          <!--
+    --><label for="radio4">★</label>
+          <!--
+    --><input id="radio5" type="radio" name="votos" value="1">
+          <!--
+    --><label for="radio5">★</label>
+        </h1>
+        <button id="votarButton" type="submit" onclick="" class="btn btn-primary">
+          <h1>Votar</h1>
+        </button>
+      </form>
+    </div>
+    <br>
+    <div class="container text-center my-auto">
+      <div class="container text-center my-auto">
+        <iframe width="847" height="410" src="{{data.url}}" frameborder="15"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+     <font face="Comic Sans MS,arial,verdana" color="white" > <h3>
+        Categoría: {{data.category}}
+      </h3>
+      <h3>
+        Plataforma: {{data.name_Pla}}
+      </h3>
+      <h3>
+      Subido por:</h3>
+      <a href="/user_videos/{{data.id}}">
+        <h3 style="color:white" class="card-title">
+          {{data.username}}
+        </h3>
+      </a>
+      <h4>Description: {{data.description}}</h4> 
+      {{/if}}
+      {{#each prom}}
+      <div id="prom">
+        <input id="votos" value="{{prom}}">
+        <h3>Ranking</h3>
+        <label>{{prom}}/5 </label>
+          <label id="r1">★</label>
+          <label id="r2">★</label>
+          <label id="r3">★</label>
+          <label id="r4">★</label>
+          <label id="r5">★</label>
+        
+      </div>
+ </font> 
+      {{/each}}
+    </div>
+  </div>
+</section>
+     {{>footer}} 
+<script type="text/javascript">
+  var votos = document.getElementById("votos");
+  function calificar() {
+    console.log(votos.value);
+    var radio1 = document.getElementById("r1");
+    var radio2 = document.getElementById("r2");
+    var radio3 = document.getElementById("r3");
+    var radio4 = document.getElementById("r4");
+    var radio5 = document.getElementById("r5");
+    console.log(votos.value);
+    for (var i = 0; i <= votos.value; i++) {
+      switch (i) {
+        case 1:
+          radio1.style = "color: yellow";
+          break;
+      
+        default:
+          console.log("no funciona");
+      }
+    }
+  };
+
+  window.onload = calificar;
+</script>

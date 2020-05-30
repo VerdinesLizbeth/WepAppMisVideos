@@ -1,0 +1,93 @@
+       <section class="page-section bg-dark">
+       <div class="jumbotron">
+            <div class="text-center">
+                <br>
+                <br>
+                <br>
+            <font face="Comic Sans MS,arial,verdana" color="yellow" ><h1>Hello, Welcome!</h1></font>
+                <font face="Comic Sans MS,arial,verdana" color="white" ><h1>Save your favorite videos from... </h1></font>     
+                    <a class="btn btn-dark" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>  
+                    <a class="btn btn-dark" href="https://vimeo.com/es/"><i class="fab fa-vimeo-v"></i></a>
+                    <a class="btn btn-dark" href="https://www.metacafe.com/"><i class="fab fa-apple"></i></a>
+                    <br>
+                    <font face="Comic Sans MS,arual,verdana" color="yellow"><h1>Logged in users...</h1></font>
+                     <a href="/users" class="btn btn-primary"><h1>Users </h1></a>
+             </div>            
+       </div>
+
+        <div class="text-center">
+            <font face="Comic Sans MS,arial,verdana" color="white" ><h1>Videos added recently...</h1></font>
+        </div>
+        <div class="container text-center my-auto">
+        <div id="datos" class="row">
+            {{#each data}}
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="/detail/{{id}}">
+                        <input value="{{id}}" class="video">
+                        <iframe class="img-fluid" width="397" height="260" src="{{url}}" frameborder="0"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                             <form action="/detail/{{data.video_id}}" method="POST">
+                        <div class="portfolio-caption">
+                                    <div class="container text-center my-auto">
+                            <h2>
+                               Titulo: {{name}}
+                            </h2>
+                    </a>
+                     <a  href="/user_videos/{{user_id}}">
+                        <h2> Subido por: {{username}}</h2>
+                    </a>
+                    <h3 >
+                        Plataforma: {{name_Pla}}
+                    </h3>
+                    <h3>
+                       Categoria: {{category}}
+                    </h3>
+                    <form>
+                 <input value="{{voto}}" class="votos">
+                    <h3> Promedio:
+                        <label id="radio1{{id}}">★</label>
+                        <label id="radio2{{id}}">★</label>
+                        <label id="radio3{{id}}">★</label>
+                        <label id="radio4{{id}}">★</label>
+                        <label id="radio5{{id}}">★</label>
+                        <label>{{voto}}/5</label>
+                    </h3>
+                </div>
+             </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+<div class="agua">
+            <div class="text-center">
+                <br>
+        <font face="Comic Sans MS,arial,verdana" color="yellow" ><h1>Of the best..</h1></font>
+        </div>
+                 <div class="container text-center my-auto">
+        <div id="datos" class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                     <iframe class="img-fluid" width="347" height="355" src="https://www.youtube.com/embed/eq4jlAHhFMA" frameborder="0" 
+                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                     <iframe class="img-fluid" width="347" height="355" src="https://www.youtube.com/embed/BTmyuAxOfzU" frameborder="0" 
+                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                     <iframe class="img-fluid" src="https://player.vimeo.com/video/410720817" width="347" height="355" frameborder="0" 
+                     allow="autoplay; fullscreen" allowfullscreen></iframe>
+                  </div>
+                  </div>
+                  </div>             
+       </div>
+       </div>
+{{>footer}} 
+

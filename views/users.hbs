@@ -1,0 +1,35 @@
+
+<section class="page-section bg-dark" >
+    <div class="about">
+  <div class="container">
+        <div class="text-center">
+            <br>
+            <br>
+            <font face="Comic Sans MS,arial,verdana" color="black"><h1>usuarios</h1></font>
+             <br>
+            <br>
+                    </div> 
+                    </div>
+                    </div>
+          <div class="container">
+       <br><br>
+    <div class="row">
+      {{#each data}}
+      <div class="col-lg-4 col-sm-6 mb-4">
+         <img src="/img/images.png" alt="Logo Fazt" class="card-img-top mx-auto m-2 rounded-circle w-50">
+        <div class="portfolio-item">
+          <a href="/user_videos/{{id}}">
+            <h2 class="card-title">
+              {{username}}
+            </h2>
+          </a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+
+
+

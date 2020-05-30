@@ -1,0 +1,100 @@
+<section class="page-section bg-dark">
+    <div class="container">
+        <div class="text-center">
+            <br>
+         <font face="Comic Sans MS,arial,verdana" color="white" ><h1>Videos added by:</h1> </font>  
+         <font face="Comic Sans MS,arial,verdana" color="white" ><h1>{{username.username}}</h1></font>
+        </div>
+        <br>
+         <br>
+    <div class="row">
+        {{#each data}}
+        <a href="/detail/{{id}}">
+            <div class="col-sm-4">
+                <div class="container text-center my-auto">
+                            <input value="{{id}}" class="video">
+                    <div>
+                        <iframe width="347" height="210" src="{{url}}" frameborder="0"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <h3>
+                       Titulo: {{name}}
+                    </h3>
+        </a>
+        <h3>
+           Plataforma: {{name_Pla}}
+        </h3>
+        <h3>
+           Categoria: {{category}}
+        </h3>
+        <input value="{{voto}}" class="votos">
+        <h3>
+            <label id="r1{{id}}">★</label>
+            <label id="r2{{id}}">★</label>
+            <label id="r3{{id}}">★</label>
+            <label id="r4{{id}}">★</label>
+            <label id="r5{{id}}">★</label>
+            <label>{{voto}}/5 </label>
+        </h3><br>
+</div>
+</div>
+{{else}}
+<div class="col-md-4 mx-auto">
+    <div class="container text-center my-auto">
+        <p>There are not Videos saved yet.</p>
+    </div>
+</div>
+{{/each}}
+</div>
+</div>
+</section>
+     {{>footer}} 
+<script type="text/javascript">
+
+    function calificarIndex() {
+        var videos = document.getElementsByClassName("video");
+        var votos = document.getElementsByClassName("votos");
+        var prom = 0;
+        for (var i = 0; i < videos.length; i++) {
+            var ident = videos[i].value;
+            console.log(ident);
+            var radio1 = document.getElementById("r1" + ident);
+            console.log(radio1);
+            var radio2 = document.getElementById("r2" + ident);
+            console.log(radio2);
+            var radio3 = document.getElementById("r3" + ident);
+            console.log(radio3);
+            var radio4 = document.getElementById("r4" + ident);
+            console.log(radio4);
+            var radio5 = document.getElementById("r5" + ident);
+            console.log(radio5);
+
+            prom = votos[i].value;
+            for (var j = 0; j <= prom; j++) {
+                console.log(prom);
+                switch (j) {
+                    case 1:
+                        radio1.style = "color: yellow";
+                        break;
+                    case 2:
+                        radio2.style = "color: yellow";
+                        break;
+                    case 3:
+                        radio3.style = "color: yellow";
+                        break;
+                    case 4:
+                        radio4.style = "color: yellow";
+                        break;
+                    case 5:
+                        radio5.style ="color: yellow";
+                        break;
+                    default:
+                        console.log("no funciona");
+                }
+            }
+        }
+    };
+    window.onload = calificarIndex;
+
+</script>
